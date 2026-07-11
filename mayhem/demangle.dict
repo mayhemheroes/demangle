@@ -1,0 +1,115 @@
+# libFuzzer dictionary for mangled-symbol input (ianlancetaylor/demangle).
+# Tokens drawn from the Itanium C++ ABI mangling grammar, the Rust v0/legacy
+# mangling schemes, and a few D / MSVC prefixes. These help the fuzzer build
+# well-formed mangled names faster so it reaches deep demangler code.
+
+# ── Itanium C++ ABI prefixes ─────────────────────────────────────────────
+"_Z"
+"__Z"
+"_GLOBAL__"
+"_ZN"
+"_ZL"
+"_ZGV"
+"_ZTV"
+"_ZTI"
+"_ZTS"
+"_ZTT"
+"_ZTC"
+"_ZTh"
+"_ZTv"
+"_Zthn"
+
+# substitutions / standard abbreviations
+"St"
+"Sa"
+"Sb"
+"Ss"
+"Si"
+"So"
+"Sd"
+"S_"
+"S0_"
+"S1_"
+
+# nested / template / args
+"E"
+"I"
+"J"
+"IcEE"
+"IiEE"
+
+# builtin type codes
+"v"
+"b"
+"c"
+"a"
+"h"
+"s"
+"t"
+"i"
+"j"
+"l"
+"m"
+"x"
+"y"
+"f"
+"d"
+"e"
+"Pc"
+"Pi"
+"PKc"
+"RKi"
+"Dn"
+
+# CV / ref qualifiers, operators
+"K"
+"V"
+"r"
+"R"
+"O"
+"plli"
+"miii"
+"clE"
+"cvT_"
+
+# common short identifiers (length-prefixed)
+"3foo"
+"3bar"
+"1f"
+"4mainv"
+"3fooi"
+"3foov"
+"6vectorIiE"
+"basic_string"
+
+# expression / literal markers
+"L"
+"Li0E"
+"Li1E"
+"sr"
+"dn"
+"on"
+
+# ── Rust mangling (v0 + legacy) ──────────────────────────────────────────
+"_R"
+"_RN"
+"_RC"
+"_RINt"
+"_ZN4core"
+"17h"
+"E"
+"$LT$"
+"$GT$"
+"$u20$"
+"..0"
+"K"
+
+# ── D / others ───────────────────────────────────────────────────────────
+"_D"
+"_DT"
+
+# whitespace / edge bytes
+" "
+"@"
+"."
+"$"
